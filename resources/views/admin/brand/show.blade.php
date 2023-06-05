@@ -108,7 +108,7 @@
                             </tbody>
                         </table>
                     </div>
-
+<span>pruebadosdos</span>
 
                 </div>
                 <div class="card-footer text-muted">
