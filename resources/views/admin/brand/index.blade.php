@@ -68,7 +68,7 @@
                                         <a class="jsgrid-button jsgrid-edit-button" href="{{route('brands.edit', $brand)}}" title="Editar">
                                             <i class="far fa-edit"></i>
                                         </a>
-                                        
+                                        <span>hola hola</span>
                                         <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
                                             <i class="far fa-trash-alt"></i>
                                         </button>
