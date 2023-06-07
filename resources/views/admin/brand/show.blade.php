@@ -108,8 +108,7 @@
                             </tbody>
                         </table>
                     </div>
-<span>pruebadosdos</span>
-
+                    
                 </div>
                 <div class="card-footer text-muted">
                     <a href="{{route('categories.index')}}" class="btn btn-primary float-right">Regresar</a>
