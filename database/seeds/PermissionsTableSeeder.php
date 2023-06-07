@@ -12,7 +12,7 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        //ver Users
+        //Usuarios
         Permission::create([
             'name'          => 'Navegar usuarios',
             'slug'          => 'users.index',
@@ -75,7 +75,7 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
 
-
+        //Categoria 5 de abril / 19 de julio
         Permission::create([
             'name'=>'Navegar categorías',
             'slug'=>'categories.index',
