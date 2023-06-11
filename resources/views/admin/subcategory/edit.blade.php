@@ -15,7 +15,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('home')}}">Panel administrador</a></li>
-                <li class="breadcrumb-item"><a href="{{route('categories.index')}}">Categorías</a></li>
+                <li class="breadcrumb-item"><a href="{{route('subcategories.index')}}">Categorías</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Editar categoría</li>
             </ol>
         </nav>
@@ -26,20 +26,32 @@
                 <div class="card-body">
                     
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title">Editar categoría</h4>
+                        <h4 class="card-title">Editar Sub categoría</h4>
                     </div>
-                    {!! Form::model($category,['route'=>['categories.update',$category], 'method'=>'PUT']) !!}
+                    {!! Form::model($subcategory,['route'=>['subcategories.update',$subcategory], 'method'=>'PUT']) !!}
                     
 
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" name="name" id="name" value="{{$category->name}}" class="form-control" placeholder="Nombre" required>
+                        <input type="text" name="name" id="name" value="{{$subcategory->name}}" class="form-control" placeholder="Nombre" required>
                       </div>
                       <div class="form-group">
                         <label for="description">Descripción</label>
-                        <textarea class="form-control" name="description" id="description" rows="3">{{$category->description}}</textarea>
+                        <textarea class="form-control" name="description" id="description" rows="3">{{$subcategory->description}}</textarea>
                     </div>
                     
+                    <div class="form-group">
+                      <label for="category_id">Categoría</label>
+                      <select class="form-control" name="category_id" id="category_id">
+                        @foreach ($categories as $category)
+                        <option value="{{$category->id}}" 
+                            @if ($category->id == $subcategory->category_id)
+                            selected
+                            @endif
+                            >{{$category->name}}</option>
+                        @endforeach
+                      </select>
+                    </div>
 
                      <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
                      <a href="{{route('categories.index')}}" class="btn btn-light">

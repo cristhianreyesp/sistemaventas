@@ -102,7 +102,7 @@ class PermissionsTableSeeder extends Seeder
             'description'=>'Eliminar cualquier dato de una categoría del sistema.',
         ]);
 
-        
+        //Clientes
         Permission::create([
             'name'=>'Navegar por clientes',
             'slug'=>'clients.index',
@@ -130,7 +130,7 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
           
-
+        //Productos
         Permission::create([
             'name'=>'Navegar por productos',
             'slug'=>'products.index',
@@ -158,7 +158,7 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
 
-           
+          //Proveedores 
         Permission::create([
             'name'=>'Navegar por proveedores',
             'slug'=>'providers.index',
@@ -185,7 +185,7 @@ class PermissionsTableSeeder extends Seeder
             'description'=>'Eliminar cualquier dato de un proveedor del sistema.',
         ]);
 
-        
+        //compras
         Permission::create([
             'name'=>'Navegar por compras',
             'slug'=>'purchases.index',
@@ -202,7 +202,7 @@ class PermissionsTableSeeder extends Seeder
             'description'=>'Crea cualquier dato de un compra del sistema.',
         ]);
 
-         
+         //Ventas
         Permission::create([
             'name'=>'Navegar por ventas',
             'slug'=>'sales.index',
@@ -219,7 +219,7 @@ class PermissionsTableSeeder extends Seeder
             'description'=>'Crea cualquier dato de un venta del sistema.',
         ]);
 
-
+        //PDF
         Permission::create([
             'name'=>'Descargar PDF reporte de compras',
             'slug'=>'purchases.pdf',
@@ -240,7 +240,7 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
 
-
+        //Datos Empresa
         Permission::create([
             'name'=>'Ver datos de la empresa',
             'slug'=>'business.index',
@@ -252,6 +252,8 @@ class PermissionsTableSeeder extends Seeder
             'description'=>'Editar cualquier dato de la empresa.',
         ]);
 
+
+        //Imprimir
         Permission::create([
             'name'=>'er datos de la impresora',
             'slug'=>'printers.index',
@@ -269,6 +271,7 @@ class PermissionsTableSeeder extends Seeder
             'description'=>'Puede subir comprobantes de una compra.',
         ]);
 
+        //Cambiar estado
         Permission::create([
             'name'=>'Cambiar estado de producto',
             'slug'=>'change.status.products',
@@ -287,7 +290,7 @@ class PermissionsTableSeeder extends Seeder
             'description'=>'Permite cambiar el estado de un venta.',
         ]);
 
-
+        //Reportes
         Permission::create([
             'name'=>'Reporte por día',
             'slug'=>'reports.day',

@@ -12,8 +12,9 @@ class SubcategoryController extends Controller
 {
     public function index()
     {
+        $categories = Category::get();
         $subcategories = Subcategory::get();
-        return view('admin.subcategory.index', compact('subcategories'));
+        return view('admin.subcategory.index', compact('categories',  'subcategories'));
     }
 
     public function create()
@@ -28,21 +29,24 @@ class SubcategoryController extends Controller
         return redirect()->route('subcategories.index');
     }
 
-    public function show(Product $product)
+    public function edit(Subcategory $subcategory)
     {
+        $categories = Category::get();
+        return view('admin.subcategory.edit', compact('subcategory', 'categories'));
+    }
+    public function update(UpdateRequest $request, Subcategory $subcategory)
+    {
+        $subcategory->update($request->all());
+        return redirect()->route('subcategories.index');
+    }
+    public function destroy(Subcategory $subcategory)
+    {
+        $subcategory->delete();
+        return redirect()->route('subcategories.index');
     }
 
-    public function edit(Product $product)
-    {
-    }
-
-    public function update(Request $request, Product $product)
-    {
-
-    }
-
-    public function destroy(Product $product)
-    {
-
+   public function byCategory($id)
+   {
+        return Subcategory::where('category_id',$id)->get();
     }
 }

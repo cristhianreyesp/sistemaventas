@@ -3,7 +3,7 @@
 @section('styles')
 @endsection
 @section('options')
-@endsection
+@endsection 
 @section('preference')
 @endsection
 @section('content')
