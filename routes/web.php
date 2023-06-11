@@ -1,5 +1,6 @@
 <?php
 
+use App\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +29,20 @@ Route::resource('roles', 'RoleController')->names('roles');
 Route::resource('business', 'BusinessController')->names('business')->only([
     'index', 'update'
 ]);
+Route::get('get_products_by_id', 'ProductController@get_products_by_id')->name('get_products_by_id');
+Route::get('change_status/products/{product}', 'ProductController@change_status')->name('change.status.products');
 
+//
+Route::resource('purchases', 'PurchaseController')->names('purchases')->except([
+    'edit', 'update', 'destroy'
+]);
+Route::get('purchases/pdf/{purchase}', 'PurchaseController@pdf')->name('purchases.pdf');
+Route::get('change_status/purchases/{purchase}', 'PurchaseController@change_status')->name('change.status.purchases');
+
+//
+Route::resource('sales', 'SaleController')->names('sales')->except([
+    'edit', 'update', 'destroy'
+]);
 Route::get('print_barcode', 'ProductController@print_barcode')->name('print_barcode');
 Route::get('/prueba', function () {
     return view('prueba');

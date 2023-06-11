@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Gestión de productos')
+@section('title','Gestión de ventas')
 @section('styles')
 <style type="text/css">
     .unstyled-button {
@@ -10,6 +10,8 @@
 </style>
 
 @endsection
+@section('create')
+@endsection
 @section('options')
 @endsection
 @section('preference')
@@ -18,16 +20,16 @@
 <div class="content-wrapper">
     <div class="page-header">
         <h3 class="page-title">
-            Productos
+            Ventas
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('home')}}">Panel administrador</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Productos</li>
+                <li class="breadcrumb-item active" aria-current="page">Ventas</li>
             </ol>
         </nav>
     </div>
-            <a class="nav-link" href="{{route('products.create')}}">
+        <a class="nav-link" href="{{route('sales.create')}}">
             <span class="btn btn-primary btn-rounded btn-fw"> + Crear nuevo </span>
         </a>
     <div class="row">
@@ -36,8 +38,14 @@
                 <div class="card-body">
                     
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title">Productos</h4>
+                        <h4 class="card-title">Ventas</h4>
                         <div class="btn-group">
+                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                              <a href="{{route('sales.create')}}" class="dropdown-item">Registrar</a>
+                            </div>
                           </div>
                     </div>
 
@@ -46,49 +54,44 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Stock</th>
+                                    <th>Fecha</th>
+                                    <th>Total</th>
                                     <th>Estado</th>
-                                    <th>Categoría</th>
-                                    <th>Acciones</th>
+                                    <th style="width:50px;">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($products as $product)
+                                @foreach ($sales as $sale)
                                 <tr>
-                                    <th scope="row">{{$product->id}}</th>
+                                    <th scope="row">
+                                        <a href="{{route('sales.show', $sale)}}">{{$sale->id}}</a>
+                                    </th>
                                     <td>
-                                        <a href="{{route('products.show',$product)}}">{{$product->name}}</a>
+                                        {{\Carbon\Carbon::parse($sale->sale_date)->format('d M y h:i a')}}
                                     </td>
-                                    <td>{{$product->stock}}</td>
-                                    @if ($product->status == 'ACTIVO')
+                                    <td>{{$sale->total}}</td>
+
+                                    @if ($sale->status == 'VALIDO')
                                     <td>
-                                        <a class="jsgrid-button btn btn-success" href="{{route('change.status.products', $product)}}" title="Editar">
+                                        <a class="jsgrid-button btn btn-success" href="{{route('change.status.sales', $sale)}}" title="Editar">
                                             Activo <i class="fas fa-check"></i>
                                         </a>
                                     </td>
                                     @else
                                     <td>
-                                        <a class="jsgrid-button btn btn-danger" href="{{route('change.status.products', $product)}}" title="Editar">
-                                            Desactivado <i class="fas fa-times"></i>
+                                        <a class="jsgrid-button btn btn-danger" href="{{route('change.status.sales', $sale)}}" title="Editar">
+                                            Cancelado <i class="fas fa-times"></i>
                                         </a>
                                     </td>
                                     @endif
-                                    
 
-                                    <td>{{$product->category->name}}</td>
                                     <td style="width: 50px;">
-                                        {!! Form::open(['route'=>['products.destroy',$product], 'method'=>'DELETE']) !!}
 
-                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('products.edit', $product)}}" title="Editar">
-                                            <i class="far fa-edit"></i>
-                                        </a>
+                                        <a href="{{route('sales.pdf', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
                                         
-                                        <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-
-                                        {!! Form::close() !!}
+                                        <a href="{{route('sales.show', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
+                                   
+                                      
                                     </td>
                                 </tr>
                                 @endforeach

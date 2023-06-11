@@ -30,31 +30,57 @@
                     </div>
                     {!! Form::open(['route'=>'products.store', 'method'=>'POST','files' => true]) !!}
                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="name">Nombre</label>
+                                <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" required>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="provider_id">Proveedor</label>
+                                <select class="form-control" name="provider_id" id="provider_id">
+                                @foreach ($providers as $provider)
+                                    <option value="{{$provider->id}}">{{$provider->name}}</option>
+                                @endforeach
+                                </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="brand_id">Marca</label>
+                                <select class="form-control" name="brand_id" id="brand_id">
+                                @foreach ($brands as $brand)
+                                    <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                @endforeach
+                                </select>
+                        </div>
 
-                    <div class="form-group">
-                      <label for="name">Nombre</label>
-                      <input type="text" name="name" id="name" class="form-control" aria-describedby="helpId" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="sell_price">Precio de venta</label>
-                        <input type="number" name="sell_price" id="sell_price" class="form-control" aria-describedby="helpId" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="category_id">Categoría</label>
-                      <select class="form-control" name="category_id" id="category_id">
-                        @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>
-                        @endforeach
-                      </select>
+
+
+                        <div class="form-group col-md-6">
+                            <label for="category_id">Categoría</label>
+                                <select class="form-control" name="category_id" id="category_id">
+                                <option value="">Selecione Categoria</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="provider_id">Proveedor</label>
-                        <select class="form-control" name="provider_id" id="provider_id">
-                          @foreach ($providers as $provider)
-                          <option value="{{$provider->id}}">{{$provider->name}}</option>
-                          @endforeach
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="subcategory_id">Sub categoria</label>
+                                <select class="form-control" name="subcategory_id" id="subcategory_id" disable>
+                                 <option value="">Selecione Sub Categoria</option>
+                                </select>
+                        </div>
+                        
+                        <div class="form-group col-md-6">
+                            <label for="sell_price">Precio de venta</label>
+                            <input type="number" name="sell_price" id="sell_price" class="form-control" aria-describedby="helpId" required>
+                        </div>
                     </div>
 
                     <div class="card-body">
@@ -80,4 +106,32 @@
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
 {!! Html::script('melody/js/dropify.js') !!}
+<script>
+
+$(function() {
+        $("#category_id").on('change', onSelectCategoryChange);
+    });
+
+function onSelectCategoryChange() {
+    var category_id = $(this).val();
+
+    if (!category_id) {
+        $('#subcategory_id').html('<option value="">Seleccione Nivel </option>');
+        return;
+    }
+    
+//ajax
+    $.get('/api/category/'+category_id+'/subcategories',function(data) {
+        var html_select = '<option value="">Seleccione Sub Categoria </option>';
+        for (var i=0; i<data.length; ++i)
+            html_select += '<option value="'+data[i].id+'">'+data[i].name+'</option>';
+           
+            $('#subcategory_id').html(html_select);
+    });
+ }
+</script>
 @endsection
+
+
+
+

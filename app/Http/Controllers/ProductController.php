@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Brand;
+use App\Subcategory;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Product\StoreRequest;
@@ -34,9 +36,11 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::get();
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
         $providers = Provider::get();
-        return view('admin.product.create', compact('categories', 'providers'));
+        $brands = Brand::get();
+        return view('admin.product.create', compact('categories', 'providers', 'brands', 'subcategories'));
     }
 
     public function store(Request $request)
@@ -65,8 +69,10 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::get();
+        $subcategories = Subcategory::get();
         $providers = Provider::get();
-        return view('admin.product.edit', compact('product', 'categories', 'providers'));
+        $brands = Brand::get();
+        return view('admin.product.edit', compact('product', 'categories', 'providers','brands', 'subcategories'));
     }
 
     public function update(Request $request, Product $product)
@@ -91,13 +97,6 @@ class ProductController extends Controller
     {
         $product->delete();
         return redirect()->route('products.index');
-    }
-
-    public function get_products_by_barcode(Request $request){
-        if ($request->ajax()) {
-            $products = Product::where('code', $request->code)->firstOrFail();
-            return response()->json($products);
-        }
     }
 
     public function get_products_by_id(Request $request){
