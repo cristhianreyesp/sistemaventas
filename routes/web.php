@@ -43,7 +43,14 @@ Route::get('change_status/purchases/{purchase}', 'PurchaseController@change_stat
 Route::resource('sales', 'SaleController')->names('sales')->except([
     'edit', 'update', 'destroy'
 ]);
-Route::get('print_barcode', 'ProductController@print_barcode')->name('print_barcode');
+Route::get('change_status/sales/{sale}', 'SaleController@change_status')->name('change.status.sales');
+Route::get('sales/pdf/{sale}', 'SaleController@pdf')->name('sales.pdf');
+
+
+// pdf
+Route::get('purchases/pdf/{purchase}', 'PurchaseController@pdf')->name('purchases.pdf');
+Route::get('sales/pdf/{sale}', 'SaleController@pdf')->name('sales.pdf');
+//
 Route::get('/prueba', function () {
     return view('prueba');
 });
