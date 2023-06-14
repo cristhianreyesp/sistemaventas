@@ -26,12 +26,13 @@
             </ol>
         </nav>
     </div>
+
     <div class="row">
               <div class="col-lg-12">
                   <div class="card px-2">
                       <div class="card-body">
                           <div class="container-fluid">
-                            <h3 class="text-right my-5">Factura&nbsp;&nbsp;#N°-{{$purchase->id}}</h3>
+                            <h3 class="text-right my-5">Factura Compra #N°-{{$purchase->id}}</h3>
                             <hr>
                           </div>
                           <div class="container-fluid d-flex justify-content-between">
@@ -82,14 +83,14 @@
                           </div>
                           <div class="container-fluid w-100">
                             <a href="{{route('purchases.pdf', $purchase)}}" class="btn btn-primary float-right mt-4 ml-2"><i class="fa fa-print mr-1"></i>Imprimir</a>
-                            <a href="#" class="btn btn-success float-right mt-4"><i class="fa fa-share mr-1"></i>Send Invoice</a>
+                            {{--<a href="#" class="btn btn-success float-right mt-4"><i class="fa fa-share mr-1"></i>Enviar</a>--}}
                           </div>
                       </div>
                   </div>
               </div>
           </div>
 
-</div>
+    </div>
 @endsection
 @section('scripts')
 {!! Html::script('melody/js/profile-demo.js') !!}

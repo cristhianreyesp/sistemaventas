@@ -6,24 +6,15 @@
 <title>Reporte de venta</title>
 <style>
     body {
-        /*position: relative;*/
-        /*width: 16cm;  */
-        /*height: 29.7cm; */
-        /*margin: 0 auto; */
-        /*color: #555555;*/
-        /*background: #FFFFFF; */
         font-family: Arial, sans-serif;
         font-size: 14px;
-        /*font-family: SourceSansPro;*/
     }
-
 
     #datos {
         float: left;
         margin-top: 0%;
         margin-left: 2%;
         margin-right: 2%;
-        /*text-align: justify;*/
     }
 
     #encabezado {
@@ -40,7 +31,7 @@
         margin-left: 2%;
         margin-right: 2%;
         font-size: 20px;
-        background: #D2691E;
+        
     }
 
     section {

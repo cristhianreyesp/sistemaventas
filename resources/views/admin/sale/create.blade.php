@@ -112,14 +112,14 @@
 
 <script>
 
-    var product_id1 = $('#product_id1');
+    var product_id = $('#product_id');
 	
-    product_id1.change(function(){
+    product_id.change(function(){
             $.ajax({
                 url: "{{route('get_products_by_id')}}",
                 method: 'GET',
                 data:{
-                    product_id: product_id1.val(),
+                    product_id: product_id.val(),
                 },
                 success: function(data){
                     $("#price").val(data.sell_price);
@@ -144,8 +144,8 @@
     function agregar() {
     
 
-        product_id = $("#product_id1").val();
-        producto = $("#product_id1 option:selected").text();
+        product_id = $("#product_id").val();
+        producto = $("#product_id option:selected").text();
         quantity = $("#quantity").val();
         discount = $("#discount").val();
         price = $("#price").val();

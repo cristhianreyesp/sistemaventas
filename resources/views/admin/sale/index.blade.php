@@ -74,12 +74,12 @@
                                     @if ($sale->status == 'VALIDO')
                                     <td>
                                         <a class="jsgrid-button btn btn-success" href="{{route('change.status.sales', $sale)}}" title="Editar">
-                                            Activo <i class="fas fa-check"></i>
+                                            Activo <i class="fas fa-check"></i> 
                                         </a>
                                     </td>
                                     @else
                                     <td>
-                                        <a class="jsgrid-button btn btn-danger" href="{{route('change.status.sales', $sale)}}" title="Editar">
+                                        <a class="jsgrid-button btn btn-danger"  title="Editar" disabled>
                                             Cancelado <i class="fas fa-times"></i>
                                         </a>
                                     </td>

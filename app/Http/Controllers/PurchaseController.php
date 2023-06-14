@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+ 
 use App\Purchase;
 use App\Provider;
 use App\Product;
