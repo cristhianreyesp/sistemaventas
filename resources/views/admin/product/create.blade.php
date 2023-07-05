@@ -56,12 +56,12 @@
                                 </select>
                         </div>
 
-
+ 
 
                         <div class="form-group col-md-6">
                             <label for="category_id">Categoría</label>
                                 <select class="form-control" name="category_id" id="category_id">
-                                <option value="">Selecione Categoria</option>
+                                <option value="">Seleccione Categoria</option>
                                 @foreach ($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
@@ -73,7 +73,7 @@
                         <div class="form-group col-md-6">
                             <label for="subcategory_id">Sub categoria</label>
                                 <select class="form-control" name="subcategory_id" id="subcategory_id" disable>
-                                 <option value="">Selecione Sub Categoria</option>
+                                 <option value="">Seleccione Sub Categoria</option>
                                 </select>
                         </div>
                         
@@ -116,7 +116,7 @@ function onSelectCategoryChange() {
     var category_id = $(this).val();
 
     if (!category_id) {
-        $('#subcategory_id').html('<option value="">Seleccione Nivel </option>');
+        $('#subcategory_id').html('<option value="">Seleccione Sub Categoria </option>');
         return;
     }
     

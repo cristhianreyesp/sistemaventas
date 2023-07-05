@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Business;
 use Illuminate\Http\Request;
+use App\Businesses;
 use App\Http\Requests\Business\UpdateRequest;
 
-class BusinessController extends Controller
+class BusinessesController extends Controller
 {
     public function __construct()
     {
@@ -14,12 +14,16 @@ class BusinessController extends Controller
         $this->middleware('can:business.index')->only(['index']);
         $this->middleware('can:business.edit')->only(['update']);
     }
-    
+   
     public function index(){
-        $business = Business::where('id', 1)->firstOrFail();
+
+        //$brands = Brand::get();
+        //$business = Businesses::all();
+        $business = Businesses::where('id', 1)->firstOrFail();
         return view('admin.business.index', compact('business'));
     }
-    public function update(UpdateRequest $request, Business $business)
+
+    public function update(UpdateRequest $request, Businesses $business)
     {
         if($request->hasFile('picture')){
             $file = $request->file('picture');

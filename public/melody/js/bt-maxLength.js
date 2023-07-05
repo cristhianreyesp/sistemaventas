@@ -5,6 +5,14 @@
     limitReachedClass: "badge mt-1 badge-danger"
   });
 
+  $('#dni').maxlength({
+    alwaysShow: true,
+    threshold: 8,
+    warningClass: "badge mt-1 badge-success",
+    limitReachedClass: "badge mt-1 badge-danger",
+    validate: true
+  });
+  
   $('#phone').maxlength({
     alwaysShow: true,
     threshold: 9,
@@ -14,6 +22,13 @@
   });
 
   $('#ruc_number').maxlength({
+    alwaysShow: true,
+    threshold: 11,
+    warningClass: "badge mt-1 badge-success",
+    limitReachedClass: "badge mt-1 badge-danger",
+    validate: true
+  });
+  $('#ruc').maxlength({
     alwaysShow: true,
     threshold: 11,
     warningClass: "badge mt-1 badge-success",
