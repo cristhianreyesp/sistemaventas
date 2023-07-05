@@ -33,7 +33,7 @@
                                     <div class="d-md-flex">
                                         <h2 class="mb-0">S/ {{$total->totalcompra}} </h2> <span> (MES ACTUAL)</span> 
                                     </div>
-                                        <small class="text-gray">N° ventas {{$canCompraAct}}</small>
+                                        <small class="text-gray">N° Compras {{$canCompraAct}}</small>
                                     <div class="chart-wrapper mt-3" style="height:26px;">
                                         <a href="{{route('purchases.index')}}" class="small-box-footer h6">Compras 
                                         <i class="fa fa-arrow-circle-right"></i></a>
