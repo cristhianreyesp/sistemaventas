@@ -21,7 +21,30 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#page-layouts2" aria-expanded="false"
+                aria-controls="page-layouts2">
+                <i class="fas fa-chart-line menu-icon"></i>
+                <span class="menu-title">Reportes</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="page-layouts2">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link" href="{{route('reports.cday')}}">Compras por día</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('reports.cdate')}}">Compras por fecha</a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link" href="{{route('reports.day')}}">Ventas por día</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('reports.date')}}">Ventas por fecha</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="{{route('purchases.index')}}">
                 <i class="fas fa-cart-plus menu-icon"></i>
@@ -61,7 +84,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{route('brands.index')}}">
-                <i class="fas fa-boxes menu-icon"></i>
+                <i class="fas fa-copyright menu-icon"></i>
                 <span class="menu-title">Marcas</span>
             </a>
         </li>

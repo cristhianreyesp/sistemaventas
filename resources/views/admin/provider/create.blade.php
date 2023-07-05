@@ -42,7 +42,7 @@
 
                     <div class="form-group">
                         <label for="ruc_number">Numero de RUC</label>
-                        <input type="number" class="form-control" name="ruc_number" id="ruc_number" aria-describedby="helpId" required>
+                        <input type="number" maxlength="11" class="form-control" name="ruc_number" id="ruc_number" aria-describedby="helpId" required>
                     </div>
 
                     <div class="form-group">
@@ -52,7 +52,7 @@
 
                     <div class="form-group">
                         <label for="phone">Numero de contacto</label>
-                        <input type="number" class="form-control" name="phone" id="phone" aria-describedby="helpId" required>
+                        <input type="number" maxlength="9" class="form-control" name="phone"  id="phone" aria-describedby="helpId" required>
                     </div>
 
                      <button type="submit" class="btn btn-primary mr-2">Registrar</button>
@@ -61,9 +61,6 @@
                      </a>
                      {!! Form::close() !!}
                 </div>
-                {{--  <div class="card-footer text-muted">
-                    {{$providers->render()}}
-                </div>  --}}
             </div>
         </div>
     </div>
@@ -71,4 +68,6 @@
 @endsection
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
+{!! Html::script('melody/js/form-validation.js') !!}
+{!! Html::script('melody/js/bt-maxLength.js') !!}
 @endsection

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSalesTable extends Migration
 {
-    /**
+    /** 
      * Run the migrations.
      *
      * @return void
@@ -18,16 +18,11 @@ class CreateSalesTable extends Migration
             
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients');
-           
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-
-
             $table->dateTime('sale_date');
-
             $table->decimal('tax');
             $table->decimal('total');
-
             $table->enum('status',['VALIDO','CANCELADO'])->default('VALIDO');
 
             $table->timestamps();

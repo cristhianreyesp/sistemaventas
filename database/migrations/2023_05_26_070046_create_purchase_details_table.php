@@ -20,7 +20,6 @@ class CreatePurchaseDetailsTable extends Migration
             $table->foreign('purchase_id')->references('id')->on('purchases');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
-
             $table->integer('quantity');
             $table->decimal('price');
 
