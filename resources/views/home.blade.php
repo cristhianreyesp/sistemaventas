@@ -129,8 +129,7 @@
 
 <script>
 $(function () {
-    var varCompra=document.getElementById('compras').getContext('2d');
-    
+            var varCompra=document.getElementById('compras').getContext('2d');
             var charCompra = new Chart(varCompra, {
                 type: 'line',
                 data: {
@@ -138,13 +137,13 @@ $(function () {
                         { 
                             
                     setlocale(LC_TIME, 'es_ES', 'Spanish_Spain', 'Spanish'); 
-                    $meses=strftime('%B',strtotime($reg->mes));
+                    $meses=strftime('%B',strtotime(date("Y-".sprintf("%02d", $reg->mes)."-01")));
                     
-                    echo '"'. $meses.'",';} ?>],
+                    echo '"'. $meses.'",';} ?>].reverse(), 
                     datasets: [{
                         label: 'Compras',
                         data: [<?php foreach ($comprasmes as $reg)
-                            {echo ''. $reg->totalmes.',';} ?>],
+                            {echo ''. $reg->totalmes.',';} ?>].reverse(),
                     
                         backgroundColor: 'rgba(11,148,247,255)',
                         borderColor: 'rgba(11,148,247,255)',
@@ -161,6 +160,9 @@ $(function () {
                     }
                 }
             });
+
+
+            
             var varVenta=document.getElementById('ventas').getContext('2d');
             var charVenta = new Chart(varVenta, {
                 type: 'line',
@@ -168,13 +170,13 @@ $(function () {
                     labels: [<?php foreach ($ventasmes as $reg)
                 {
                     setlocale(LC_TIME, 'es_ES', 'Spanish_Spain', 'Spanish'); 
-                    $mes_traducido=strftime('%B',strtotime($reg->mes));
+                    $mes_traducido=strftime('%B',strtotime(date("Y-".sprintf("%02d", $reg->mes)."-01")));
                     
-                    echo '"'. $mes_traducido.'",';} ?>],
+                    echo '"'. $mes_traducido.'",';} ?>].reverse(),
                     datasets: [{
                         label: 'Ventas',
                         data: [<?php foreach ($ventasmes as $reg)
-                        {echo ''. $reg->totalmes.',';} ?>],
+                        {echo ''. $reg->totalmes.',';} ?>].reverse(),
                         backgroundColor: 'rgba(255,94,109,255)',
                         borderColor: 'rgba(255,94,109,255)',
                         borderWidth: 1
@@ -198,11 +200,11 @@ $(function () {
                 {
                     $dia = $ventadia->dia;
                     
-                    echo '"'. $dia.'",';} ?>],
+                    echo '"'. $dia.'",';} ?>].reverse(),
                     datasets: [{
                         label: 'Ventas',
                         data: [<?php foreach ($ventasdia as $reg)
-                        {echo ''. $reg->totaldia.',';} ?>],
+                        {echo ''. $reg->totaldia.',';} ?>].reverse(),
                         backgroundColor: 'rgba(255,94,109,255)',
                         borderColor: 'rgba(255,94,109,255)',
                         borderWidth: 1
@@ -226,11 +228,11 @@ $(function () {
                 {
                     $dia = $compradia->dia;
                     
-                    echo '"'. $dia.'",';} ?>],
+                    echo '"'. $dia.'",';} ?>].reverse(),
                     datasets: [{
                         label: 'Compras',
                         data: [<?php foreach ($comprasdia as $reg)
-                        {echo ''. $reg->totaldia.',';} ?>],
+                        {echo ''. $reg->totaldia.',';} ?>].reverse(),
                         backgroundColor: 'rgba(11, 148, 247, 255)',
                         borderColor: 'rgba(11, 148, 247, 255)',
                         borderWidth: 1
