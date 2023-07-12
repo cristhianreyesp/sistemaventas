@@ -31,6 +31,7 @@ Route::resource('clients', 'ClientController')->names('clients');
 Route::resource('users', 'UserController')->names('users');
 Route::resource('roles', 'RoleController')->names('roles');
 
+Route::get('get_products_by_barcode', 'ProductController@get_products_by_barcode')->name('get_products_by_barcode');
 Route::get('get_products_by_id', 'ProductController@get_products_by_id')->name('get_products_by_id');
 Route::get('change_status/products/{product}', 'ProductController@change_status')->name('change.status.products');
 

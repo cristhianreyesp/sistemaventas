@@ -111,15 +111,15 @@
 {!! Html::script('js/sweetalert2.all.min.js') !!}
 
 <script>
-
-    var product_id = $('#product_id');
+ 
+    var product_id1 = $('#product_id1');
 	
-    product_id.change(function(){
+    product_id1.change(function(){
             $.ajax({
                 url: "{{route('get_products_by_id')}}",
                 method: 'GET',
                 data:{
-                    product_id: product_id.val(),
+                    product_id: product_id1.val(),
                 },
                 success: function(data){
                     $("#price").val(data.sell_price);
@@ -128,6 +128,33 @@
             }
         });
     });
+    
+    
+    $(obtener_registro());
+    function obtener_registro(code){
+        $.ajax({
+            url: "{{route('get_products_by_barcode')}}",
+            type: 'GET',
+            data:{
+                code: code
+            },
+            dataType: 'json',
+            success:function(data){
+                console.log(data);
+                $("#price").val(data.sell_price);
+                $("#stock").val(data.stock);
+                $("#product_id1").val(data.id);
+            }
+        });
+    }
+    $(document).on('keyup', '#code', function(){
+        var valorResultado = $(this).val();
+        if(valorResultado!=""){
+            obtener_registro(valorResultado);
+        }else{
+            obtener_registro();
+        }
+    })
 
 
     $(document).ready(function () {
@@ -144,8 +171,8 @@
     function agregar() {
     
 
-        product_id = $("#product_id").val();
-        producto = $("#product_id option:selected").text();
+        product_id = $("#product_id1").val();
+        producto = $("#product_id1 option:selected").text();
         quantity = $("#quantity").val();
         discount = $("#discount").val();
         price = $("#price").val();

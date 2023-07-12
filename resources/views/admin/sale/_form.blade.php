@@ -8,11 +8,15 @@
     </select>
 </div>
 
+<div class="form-group">
+  <input type="hidden" name="code" id="code" class="form-control" placeholder="" aria-describedby="helpId">
+</div>
+
   <div class="form-row">
     <div class="form-group col-md-4">
         <div class="form-group">
             <label for="product_id">Producto</label>
-            <select class="form-control" name="product_id" id="product_id">
+            <select class="form-control" name="product_id" id="product_id1">
                 <option value="" disabled selected>Selecccione un producto</option>
                 @foreach ($products as $product)
                 <option value="{{$product->id}}">{{$product->name}}</option>
