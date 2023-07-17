@@ -62,7 +62,7 @@
                                         <th>Precio (PEN)</th>
                                         <th class="text-right">Cantidad</th>
                                         <th class="text-right">Descuento</th>
-                                        <th class="text-right">SubTotal (PEN)</th>
+                                        <th class="text-right">Monto (PEN)</th>
                                       </tr>
                                   </thead>
                                   <tbody>
@@ -81,7 +81,7 @@
                               </div>
                           </div>
                           <div class="container-fluid mt-5 w-100">
-                            <p class="text-right mb-2">Sub - Total: s/{{number_format($subtotal,2)}}</p>
+                            <p class="text-right mb-2">Sub - Total: s/{{number_format($sale->total-$subtotal*$sale->tax/100,2)}}</p>
                             <p class="text-right">Tax ({{$sale->tax}}%) : s/{{number_format($subtotal*$sale->tax/100,2)}}</p>
                             <h4 class="text-right mb-5">Total : s/{{number_format($sale->total,2)}}</h4>
                             <hr>
@@ -96,91 +96,6 @@
           </div>
     </div>
 
-    {{--<div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="form-group row">
-                        <div class="col-md-4 text-center">
-                            <label class="form-control-label"><strong>Cliente</strong></label>
-                            <p><a href="{{route('clients.show', $sale->client)}}">{{$sale->client->name}}</a></p>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <label class="form-control-label"><strong>Vendedor</strong></label>
-                            <p>
-                                <a href="{{route('users.show',$sale->user)}}">{{$sale->user->name}}</a>
-                            </p>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <label class="form-control-label"><strong>Número Venta</strong></label>
-                            <p>{{$sale->id}}</p>
-                        </div>
-                    </div>
-                    <br /><br />
-                    <div class="form-group">
-                        <h4 class="card-title">Detalles de venta</h4>
-                        <div class="table-responsive col-md-12">
-                            <table id="saleDetails" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Producto</th>
-                                        <th>Precio Venta (PEN)</th>
-                                        <th>Descuento(PEN)</th>
-                                        <th>Cantidad</th>
-                                        <th>SubTotal(PEN)</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-
-                                    <tr>
-                                        <th colspan="4">
-                                            <p align="right">SUBTOTAL:</p>
-                                        </th>
-                                        <th>
-                                            <p align="right">s/{{number_format($subtotal,2)}}</p>
-                                        </th>
-                                    </tr>
-
-                                    <tr>
-                                        <th colspan="4">
-                                            <p align="right">TOTAL IMPUESTO ({{$sale->tax}}%):</p>
-                                        </th>
-                                        <th>
-                                            <p align="right">s/{{number_format($subtotal*$sale->tax/100,2)}}</p>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="4">
-                                            <p align="right">TOTAL:</p>
-                                        </th>
-                                        <th>
-                                            <p align="right">s/{{number_format($sale->total,2)}}</p>
-                                        </th>
-                                    </tr>
-
-                                </tfoot>
-                                <tbody>
-                                    @foreach($saleDetails as $saleDetail)
-                                    <tr>
-                                        <td>{{$saleDetail->product->name}}</td>
-                                        <td>s/ {{$saleDetail->price}}</td>
-                                        <td>{{$saleDetail->discount}} %</td>
-                                        <td>{{$saleDetail->quantity}}</td>
-                                        <td>s/{{number_format($saleDetail->quantity*$saleDetail->price - $saleDetail->quantity*$saleDetail->price*$saleDetail->discount/100,2)}}
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer text-muted">
-                    <a href="{{route('sales.index')}}" class="btn btn-primary float-right">Regresar</a>
-                </div>
-            </div>
-        </div>
-    </div>--}}
 </div>
 @endsection
 @section('scripts')

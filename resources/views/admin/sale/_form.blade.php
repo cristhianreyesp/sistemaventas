@@ -82,15 +82,16 @@
                     <th>Precio Venta (PEN)</th>
                     <th>Descuento</th>
                     <th>Cantidad</th>
-                    <th>SubTotal (PEN)</th>
+                    <th>Monto (PEN)</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
                     <th colspan="5">
-                        <p align="right">TOTAL:</p>
+                        <p align="right">SUB TOTAL:</p>
                     </th>
                     <th>
+
                         <p align="right"><span id="total">PEN 0.00</span> </p>
                     </th>
                 </tr>
@@ -107,8 +108,8 @@
                         <p align="right">TOTAL PAGAR:</p>
                     </th>
                     <th>
-                        <p align="right"><span align="right" id="total_pagar_html">PEN 0.00</span> <input type="hidden"
-                                name="total" id="total_pagar"></p>
+                        <p align="right"><span align="right" id="total_pagar_html">PEN 0.00</span> 
+                        <input type="hidden" name="total" id="total_pagar"></p>
                     </th>
                 </tr>
             </tfoot>

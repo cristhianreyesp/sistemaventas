@@ -65,9 +65,9 @@
                         <div class="d-md-flex">
                             <h3 class="mb-0">S/ {{$total->totalventad}} </h3> <span>  (HOY)</span> 
                         </div>
-                        <small class="text-gray">N° Compras {{$canVentasAct}}</small>
+                        <small class="text-gray">N° Ventas {{$canVentasAct}}</small>
                         <div class="chart-wrapper mt-3" style="height:26px;">
-                            <a href="{{route('purchases.index')}}" class="small-box-footer h6">Compras 
+                            <a href="{{route('purchases.index')}}" class="small-box-footer h6">Ventas 
                             <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                       </div>
@@ -80,9 +80,9 @@
                         <div class="d-md-flex">
                             <h3 class="mb-0">S/ {{$total->totalventa}} </h3> <span>  (MES)</span> 
                         </div>
-                        <small class="text-gray">N° Compras {{$canVentasAct}}</small>
+                        <small class="text-gray">N° Ventas {{$canVentasAct}}</small>
                         <div class="chart-wrapper mt-3" style="height:26px;">
-                            <a href="{{route('purchases.index')}}" class="small-box-footer h6">Compras 
+                            <a href="{{route('purchases.index')}}" class="small-box-footer h6">Ventas 
                             <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                       </div>
