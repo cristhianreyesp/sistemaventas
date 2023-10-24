@@ -8,11 +8,15 @@
     </select>
 </div>
 
+<div class="form-group">
+  <input type="hidden" name="code" id="code" class="form-control" placeholder="" aria-describedby="helpId">
+</div>
+
   <div class="form-row">
     <div class="form-group col-md-4">
         <div class="form-group">
             <label for="product_id">Producto</label>
-            <select class="form-control" name="product_id" id="product_id">
+            <select class="form-control" name="product_id" id="product_id1">
                 <option value="" disabled selected>Selecccione un producto</option>
                 @foreach ($products as $product)
                 <option value="{{$product->id}}">{{$product->name}}</option>
@@ -78,15 +82,16 @@
                     <th>Precio Venta (PEN)</th>
                     <th>Descuento</th>
                     <th>Cantidad</th>
-                    <th>SubTotal (PEN)</th>
+                    <th>Monto (PEN)</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
                     <th colspan="5">
-                        <p align="right">TOTAL:</p>
+                        <p align="right">SUB TOTAL:</p>
                     </th>
                     <th>
+
                         <p align="right"><span id="total">PEN 0.00</span> </p>
                     </th>
                 </tr>
@@ -103,8 +108,8 @@
                         <p align="right">TOTAL PAGAR:</p>
                     </th>
                     <th>
-                        <p align="right"><span align="right" id="total_pagar_html">PEN 0.00</span> <input type="hidden"
-                                name="total" id="total_pagar"></p>
+                        <p align="right"><span align="right" id="total_pagar_html">PEN 0.00</span> 
+                        <input type="hidden" name="total" id="total_pagar"></p>
                     </th>
                 </tr>
             </tfoot>

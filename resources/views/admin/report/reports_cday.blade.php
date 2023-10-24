@@ -78,7 +78,11 @@
                                     <td>{{$purchase->status}}</td>
                                     <td style="width: 50px;">
 
-                                        <a href="{{route('purchases.pdf', $purchase)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>  
+                                        <a href="{{route('purchases.pdf', $purchase)}}" class="sgrid-button jsgrid-edit-button"><i class="fa fa-print btn-icon-append"></i></a> 
+                                        
+                                        
+                                        
+
                                         <a href="{{route('purchases.show', $purchase)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
                                    
                                       

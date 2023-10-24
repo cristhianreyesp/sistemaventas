@@ -99,6 +99,14 @@ class ProductController extends Controller
         return redirect()->route('products.index');
     }
 
+    public function get_products_by_barcode(Request $request){
+        if ($request->ajax()) {
+            $products = Product::where('code', $request->code)->firstOrFail();
+            return response()->json($products);
+        }
+    }
+
+
     public function get_products_by_id(Request $request){
         if ($request->ajax()) {
             $products = Product::findOrFail($request->product_id);

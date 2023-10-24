@@ -5,202 +5,291 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Reporte de venta</title>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-    }
 
-    #datos {
-        float: left;
-        margin-top: 0%;
-        margin-left: 2%;
-        margin-right: 2%;
-    }
+html {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #000;
+    background: #ddd;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
 
-    #encabezado {
-        text-align: center;
-        margin-left: 35%;
-        margin-right: 35%;
-        font-size: 15px;
-    }
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-    #fact {
-        /*position: relative;*/
-        float: right;
-        margin-top: 2%;
-        margin-left: 2%;
-        margin-right: 2%;
-        font-size: 20px;
-        
-    }
+}
 
-    section {
-        clear: left;
-    }
+.container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem
+}
 
-    #cliente {
-        text-align: left;
-    }
 
-    #facliente {
-        width: 40%;
-        border-collapse: collapse;
-        border-spacing: 0;
-        margin-bottom: 15px;
-    }
 
-    #fac,
-    #fv,
-    #fa {
-        color: #FFFFFF;
-        font-size: 15px;
-    }
+a {
+    color: #0f42ba;
+    text-decoration: none
+}
 
-    #facliente thead {
-        padding: 20px;
-        background: #D2691E;
-        text-align: left;
-        border-bottom: 1px solid #FFFFFF;
-    }
+p {
+    margin: 0
+}
 
-    #facvendedor {
-        width: 100%;
-        border-collapse: collapse;
-        border-spacing: 0;
-        margin-bottom: 15px;
-    }
+.row {
+    position: relative;
+    display: block;
+    width: 100%;
+    font-size: 0
+}
 
-    #facvendedor thead {
-        padding: 20px;
-        background: #D2691E;
-        text-align: center;
-        border-bottom: 1px solid #FFFFFF;
-    }
+.col,
+.logoholder,
+.me,
+.info,
+.bank,
+[class*="col-"] {
+    vertical-align: top;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 0 1rem;
+    min-height: 1px
+}
 
-    #facproducto {
-        width: 100%;
-        border-collapse: collapse;
-        border-spacing: 0;
-        margin-bottom: 15px;
-    }
+.col-4 {
+    width: 25%
+}
 
-    #facproducto thead {
-        padding: 20px;
-        background: #D2691E;
-        text-align: center;
-        border-bottom: 1px solid #FFFFFF;
-    }
+.col-3 {
+    width: 33.33%
+}
+
+.col-2 {
+    width: 50%
+}
+
+.col-2-4 {
+    width: 75%
+}
+
+.col-1 {
+    width: 100%
+}
+
+.text-center {
+    text-align: center
+}
+
+.text-right {
+    text-align: right
+}
+
+.details {
+    display: inline;
+    margin: 0 0 0 .5rem;
+    border: none;
+    width: 50px;
+    min-width: 0;
+    background: transparent;
+}
+
+header {
+    margin: 1rem 0 0;
+    padding: 0 0 2rem 0;
+    border-bottom: 3pt solid #003E68
+}
+
+header p {
+    font-size: .9rem
+}
+
+header a {
+    color: #000
+}
+
+.logo {
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    border: none;
+    fill: #009688
+}
+
+.logoholder {
+    width: 14%
+}
+
+.me {
+    width: 30%
+}
+
+.info {
+    width: 30%
+}
+
+.bank {
+    width: 26%
+}
+
+.section {
+    margin: 2rem 0 0
+}
+
+
+.client {
+    margin: 0 0 3rem 0
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    color: #003E68
+}
+
+.invoicelist-body {
+    margin: 1rem
+}
+
+.invoicelist-body table {
+    width: 100%
+}
+
+.invoicelist-body thead {
+    text-align: left;
+    border-bottom: 1pt solid #666
+}
+
+.invoicelist-body td,
+.invoicelist-body th {
+    position: relative;
+    padding: 0.5rem
+}
+
+
+.invoicelist-body .control {
+    display: inline-block;
+    color: white;
+    background: #009688;
+    padding: 3px 7px;
+    font-size: .9rem;
+    text-transform: uppercase;
+    cursor: pointer
+}
+
+.invoicelist-footer {
+    margin: 1rem
+}
+
+.invoicelist-footer table {
+    float: right;
+    width: 40%
+}
+
+.invoicelist-footer table td {
+    padding: 1rem 1rem 0 1rem;
+    text-align: right
+}
+
+.invoicelist-footer table tr:nth-child(2) td {
+    padding-top: 0
+}
+
+.invoicelist-footer table #total_price {
+    font-size: 2rem;
+    color: #003E68
+}
 
 </style>
 
 <body>
-    <header>
-        {{--  <div id="logo">
-            <img src="{{asset($company->logo)}}" alt="" id="imagen">
-        </div>  --}}
-        <div>
-            <table id="datos">
-                <thead>
-                    <tr>
-                        <th id="">DATOS DEL VENDEDOR</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>
-                            <p id="proveedor">
-                                Nombre: {{$sale->user->name}}<br>
-                                
-                                Email: {{$sale->user->email}}
-                            </p>
-                        </th>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div id="fact">
-            {{--  <p>
-                {{$sale->user->types_identification}}-VENTA
-                <br>
-                {{$sale->user->id}}
-            </p>  --}}
-            <p>
-                NUMERO DE VENTA
-                <br>
-                {{$sale->id}}
-            </p>
-        </div>
-    </header>
-    <br>
-    <br>
-    <section>
-        <div>
-            <table id="facproducto">
-                <thead>
-                    <tr id="fa">
-                        <th>CANTIDAD</th>
-                        <th>PRODUCTO</th>
-                        <th>PRECIO VENTA(PEN)</th>
-                        <th>DESCUENTO(%)</th>
-                        <th>SUBTOTAL(PEN)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($saleDetails as $saleDetail)
-                    <tr>
-                        <td>{{$saleDetail->quantity}}</td>
-                        <td>{{$saleDetail->product->name}}</td>
-                        <td>s/ {{$saleDetail->price}}</td>
-                        <td>{{$saleDetail->discount}}</td>
-                        <td>s/ {{number_format($saleDetail->quantity*$saleDetail->price - $saleDetail->quantity*$saleDetail->price*$saleDetail->discount/100,2)}}
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                <tfoot>
-                    
-                    <tr>
-                        <th colspan="4">
-                            <p align="right">SUBTOTAL:</p>
-                        </th>
-                        <td>
-                            <p align="right">s/ {{number_format($subtotal,2)}}</p>
-                        </td>
-                    </tr>
-                   
-                    <tr>
-                        <th colspan="4">
-                            <p align="right">TOTAL IMPUESTO ({{$sale->tax}}%):</p>
-                        </th>
-                        <td>
-                            <p align="right">s/ {{number_format($subtotal*$sale->tax/100,2)}}</p>
-                        </td>
-                    </tr>
+  
+<header class="row">
+  <div class="logoholder text-center" >
+  </div>
+  <div class="me">
+    <p>
+      <strong>Sistema Web</strong><br>
+      Calle San Martín 814,
+      Miraflores,<br>
+      Lima - Perú.
+    </p>
+  </div>
+  <div class="bank">
+    <p>
+      Web: <a href="http://sistemaweb.com">www.sistemaweb.com</a><br>
+      E-mail: <a href="mailto:admin@admin.com">admin@admin.com</a><br>
+      Tel: 9999999
+    </p>
+  </div>
+</header>
 
-                    <tr>
-                        <th colspan="4">
-                            <p align="right">TOTAL PAGAR:</p>
-                        </th>
-                        <td>
-                            <p align="right">s/ {{number_format($sale->total,2)}}</p>
-                        </td>
-                    </tr>
+<div class="row section">
+	<div class="col-2">
+        <h1>Factura Venta</h1>
+    </div>
+    <div class="col-2 text-right details">
+        <p>
+        Fecha: {{$sale->sale_date}}<br>
+        Factura #: N°-{{$sale->id}}
+        </p>
+  </div>
 
-                  
-                </tfoot>
-            </table>
-        </div>
-    </section>
-    <br>
-    <br>
-    <footer>
-        <!--puedes poner un mensaje aqui-->
-        <div id="datos">
-            <p id="encabezado">
-                {{--  <b>{{$company->name}}</b><br>{{$company->description}}<br>Telefono:{{$company->telephone}}<br>Email:{{$company->email}}  --}}
-            </p>
-        </div>
-    </footer>
+  <div class="col-2">
+    <p class="client">  
+    Nombre: {{$sale->client->name}}<br>
+    Dirección: {{$sale->client->address}}<br>
+	Teléfono: {{$sale->client->phone}}<br>
+	Email: {{$sale->client->email}}<br>
+    Ruc:   {{$sale->client->ruc_number}}
+    </p>
+  </div>
+</div> 
+
+
+<div class="invoicelist-body">
+  <table>
+    <thead >
+      <th width="10%">Cantidad</th>
+      <th width="60%">Producto</th>
+      
+      <th width="15%">Precio (PEN)</th>
+      <th width="15%">Descuento (%)</th>
+      <th width="15%">SubTotal (PEN)</th>
+    </thead>
+    <tbody>
+    @foreach ($saleDetails as $saleDetail)
+      <tr>
+        <td width='10%'>{{$saleDetail->quantity}}</td>
+        <td>{{$saleDetail->product->name}}</td>
+        <td>s/ {{$saleDetail->price}}</td>
+        <td>s/ {{$saleDetail->discount}} %</td>
+        <td>s/ {{number_format($saleDetail->quantity*$saleDetail->price,2)}}</td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
+</div>
+
+<div class="invoicelist-footer">
+  <table>
+    <tr class="taxrelated">
+      <td>Sub Total:</td>
+      <td id="total_tax"> s/ {{number_format($subtotal,2)}}</td>
+    </tr>
+    <tr class="taxrelated">
+      <td>Iva ({{$sale->tax}}%):</td>
+      <td id="total_tax">s/ {{number_format($subtotal*$sale->tax/100,2)}}</td>
+    </tr>
+    <tr>
+      <td><strong>Total:</strong></td>
+      <td id="total_price">s/ {{number_format($sale->total,2)}}</td>
+    </tr>
+  </table>
+</div>
 </body>
 
 </html>
